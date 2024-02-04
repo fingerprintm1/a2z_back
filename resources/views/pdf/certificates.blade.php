@@ -39,10 +39,19 @@
       }
 
 
+      .centered .site_name {
+          font-weight: bold;
+          font-size: 1.2rem;
+          color: #646464;
+          padding-top: 165px;
+          margin-bottom: 0em;
+          margin-right: -10em;
+      }
+
       .centered h1 {
           font-size: 1.6rem;
-          color: #525659;
-          padding-top: 205px;
+          color: #646464;
+          padding-top: -1px;
           margin-bottom: 0em;
           margin-right: -8em;
       }
@@ -50,7 +59,7 @@
       .container h2 {
           float: left;
           font-size: 1.5rem;
-          color: #525659;
+          color: #646464;
           margin-right: -10em;
           padding-top: 115px;
       }
@@ -68,18 +77,25 @@
           margin-right: -9em;
       }
 
-
+      .centered .signature {
+          font-size: 1.3rem;
+          color: #525659;
+          padding-top: -45px;
+          margin-right: -19.5em;
+          font-style: italic;
+      }
 	</style>
 </head>
 
 <body dir="rtl">
 <div class="container">
 	<div class="centered">
+		<div class="site_name">@lang("global.site_name")</div>
 		<h1>{{$certificate->username}}</h1>
 		<h2>{{$certificate->course->name}}</h2>
 		<h3>{{$certificate->score}}%</h3>
 		<p>{{ \Carbon\Carbon::parse($certificate->created_at)->format('Y/m/d') }}</p>
-
+		<div class="signature">@lang("global.site_name")</div>
 	</div>
 </div>
 
