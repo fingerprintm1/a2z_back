@@ -13,6 +13,7 @@ class ReportsController extends Controller
 {
 	public function teachers(Request $request)
 	{
+		$this->authorize("reports_teachers");
 		function getOrders($teacher_id, $from, $to)
 		{
 			$GetCourses = Course::where('teacher_id', $teacher_id)->get();
@@ -23,15 +24,15 @@ class ReportsController extends Controller
 					return $query->whereDate("created_at", "<=", $to);
 				})->orderBy('id', 'DESC')->get();
 
-			$allOffersIDS = $GetCourses->pluck('offers')->flatten()->pluck('id')->unique();
+			/*$allOffersIDS = $GetCourses->pluck('offers')->flatten()->pluck('id')->unique();
 			$offers = Order::where('status', 1)->whereIn("offer_id", $allOffersIDS)
 				->when(!empty($from), function ($query) use ($from) {
 					return $query->whereDate("created_at", ">=", $from);
 				})->when(!empty($to), function ($query) use ($to) {
 					return $query->whereDate("created_at", "<=", $to);
-				})->orderBy('id', 'DESC')->get();
+				})->orderBy('id', 'DESC')->get();*/
 
-			return $courses->concat($offers);
+			return $courses;
 		}
 
 		$teacher_id = auth()->user()->teacher_id ?? $request->teacher_id;
@@ -46,6 +47,7 @@ class ReportsController extends Controller
 
 	public function courses(Request $request)
 	{
+		$this->authorize("reports_courses");
 		function getOrders($course_id, $from, $to)
 		{
 			$courses = Order::where('status', 1)->where('course_id', $course_id)->whereNull("lecture_id")
@@ -73,6 +75,7 @@ class ReportsController extends Controller
 
 	public function lectures(Request $request)
 	{
+		$this->authorize("reports_lectures");
 		function getOrders($lecture_id, $from, $to)
 		{
 			$lectures = Order::where('status', 1)->where("lecture_id", $lecture_id)
@@ -101,6 +104,7 @@ class ReportsController extends Controller
 
 	public function offers(Request $request)
 	{
+		$this->authorize("reports_offers");
 		function getOrders($offer_id, $from, $to)
 		{
 			$offers = Order::where('status', 1)->where("offer_id", $offer_id)
@@ -132,6 +136,7 @@ class ReportsController extends Controller
 	//students
 	public function students(Request $request)
 	{
+		$this->authorize("reports_students");
 		$user_id = $request->user_id ?? 0;
 		$from = $request->from;
 		$to = $request->to;

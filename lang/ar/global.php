@@ -63,6 +63,7 @@ return [
 
 	"orders_courses" => "طلبات الدورات",
 	"orders_offers" => "طلبات العروض",
+	"orders" => "الإشتراكات",
 	"offer" => "العرض",
 	"offers" => "العروض",
 	"offer_create" => "إنشاء عرض",
@@ -432,6 +433,9 @@ return [
 	"reports" => "التقارير",
 	"report" => "التقرير",
 	"show_reports" => "عرض التقارير",
+	"reports_courses" => "تقارير الدورات",
+	"reports_lectures" => "تقارير الحصص",
+	"reports_offers" => "تقارير العروض",
 	"reports_teachers" => "تقارير المدرسين",
 	"reports_students" => "تقارير الطلاب",
 	"certificates" => "الشهادات",

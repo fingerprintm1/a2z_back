@@ -210,7 +210,7 @@
 
 			</li>
 		@endcanany
-		@canany("show_reports", "reports_teachers", "reports_students")
+		@canany("show_reports")
 			<li
 				class="menu-item @if(in_array(Route::currentRouteName(), ["reports_teachers", "reports_courses", "reports_lectures", "reports_offers", "reports_students"])) open @endif">
 				<a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -224,18 +224,26 @@
 							<a href="{{route('reports_teachers')}}" class="menu-link">@lang('global.teachers')</a>
 						</li>
 					@endcan
-					<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_courses'])) active @endif">
-						<a href="{{route('reports_courses')}}" class="menu-link">@lang('global.courses')</a>
-					</li>
-					<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_lectures'])) active @endif">
-						<a href="{{route('reports_lectures')}}" class="menu-link">@lang('global.lectures')</a>
-					</li>
-					<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_offers'])) active @endif">
-						<a href="{{route('reports_offers')}}" class="menu-link">@lang('global.offers')</a>
-					</li>
-					<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_students'])) active @endif">
-						<a href="{{route('reports_students')}}" class="menu-link">@lang('global.students')</a>
-					</li>
+					@can("reports_courses")
+						<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_courses'])) active @endif">
+							<a href="{{route('reports_courses')}}" class="menu-link">@lang('global.courses')</a>
+						</li>
+					@endcan
+					@can("reports_lectures")
+						<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_lectures'])) active @endif">
+							<a href="{{route('reports_lectures')}}" class="menu-link">@lang('global.lectures')</a>
+						</li>
+					@endcan
+					@can("reports_offers")
+						<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_offers'])) active @endif">
+							<a href="{{route('reports_offers')}}" class="menu-link">@lang('global.offers')</a>
+						</li>
+					@endcan
+					@can("reports_students")
+						<li class="menu-item @if(in_array(Route::currentRouteName(), ['reports_students'])) active @endif">
+							<a href="{{route('reports_students')}}" class="menu-link">@lang('global.students')</a>
+						</li>
+					@endcan
 				</ul>
 			</li>
 		@endcan
