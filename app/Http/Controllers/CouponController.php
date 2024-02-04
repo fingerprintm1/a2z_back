@@ -44,15 +44,14 @@ class CouponController extends Controller
 		$this->authorize('create_coupons');
 		for ($x = 1; $x <= $request->number; $x++) {
 			$coupon = Coupon::create([
-				"code" => Str::random(15),
+				"code" => $request->code . Str::random(15),
 				"discount" => $request->discount,
 				"type" => $request->type,
 			]);
 		}
 		$description = " تم إنشاء كوبون #" . $coupon->code;
 		transaction("coupons", $description);
-		session()->put('success', trans("global.success_create"));
-		return redirect()->route('coupons');
+		return redirect()->route('coupons')->with('success', trans("global.success_create"));
 	}
 
 	public function show($id)

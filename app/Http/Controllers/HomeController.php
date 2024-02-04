@@ -8,12 +8,14 @@ use App\Models\DetailExam;
 use App\Models\ExpenseDetails;
 use App\Models\Order;
 use App\Models\User;
+use App\Notifications\MessageNotifications;
 use Carbon\Carbon;
 use DB;
 use App\Traits\GlobalTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
-class HomePage extends Controller
+class HomeController extends Controller
 {
 	use GlobalTrait;
 
@@ -30,9 +32,18 @@ class HomePage extends Controller
 		return view("test");
 	}
 
-	public function test(Request $request)
+	public function notifications()
 	{
-//		dd(file_get_contents($request->file("video")));
+		$users = User::orderBy("id", "DESC")->get();
+		return view("notifications", compact("users"));
+	}
+
+	public function sendNotifications(Request $request)
+	{
+		if (empty($request->ids)) return back()->with("error", trans("global.users_not_chose"));
+		$users = User::whereIn("id", json_decode($request->ids))->get();
+		Notification::send($users, new MessageNotifications($request->message));
+		return back()->with("success", trans("global.success_create"));
 	}
 
 	public function index()

@@ -420,6 +420,14 @@ class GlobalSeeder extends Seeder
 			"value_en" => "+201125119667",
 		]);
 		Setting::create([
+			"name" => "Instapay",
+			"key" => "instapay",
+			"key_status" => 0,
+			"type" => "text",
+			"value_ar" => "01090770686",
+			"value_en" => "01090770686",
+		]);
+		Setting::create([
 			"name" => "email",
 			"key" => "email",
 			"key_status" => 0,

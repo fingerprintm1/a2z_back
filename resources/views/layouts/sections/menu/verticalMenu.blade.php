@@ -300,7 +300,7 @@
 				</a>
 			</li>
 		@endcan
-    @can("show_sections")
+		@can("show_sections")
 			<li
 				class="menu-item @if(in_array(Route::currentRouteName(), ["sections", "section_create", "section_edit"])) active @endif">
 				<a href="/sections" class="menu-link">
@@ -309,7 +309,7 @@
 				</a>
 			</li>
 		@endcan
-    @can("show_subjects")
+		@can("show_subjects")
 			<li
 				class="menu-item @if(in_array(Route::currentRouteName(), ["subjects", "subject_create", "subject_edit", "subject_show"])) active @endif">
 				<a href="/subjects" class="menu-link">
@@ -418,6 +418,13 @@
 				</a>
 			</li>
 		@endcan
+		<li
+			class="menu-item @if(in_array(Route::currentRouteName(), ["notifications", "send_notifications"])) active @endif">
+			<a href="{{route('notifications')}}" class="menu-link">
+				<i class="menu-icon fa-solid fa-bell me-3 fs-3"></i>
+				<div>@lang('global.notifications')</div>
+			</a>
+		</li>
 		@can("show_payment_methods")
 			<li
 				class="menu-item @if(in_array(Route::currentRouteName(), ["payment_method", "payment_method_create", "payment_method_edit"])) active @endif">

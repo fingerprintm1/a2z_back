@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware("auth")->group(function () {
 
-	Route::get("/", "HomePage@index")->name("dashboard");
+	Route::get("/notifications", "HomeController@notifications")->name("notifications");
+	Route::post("/send_notifications", "HomeController@sendNotifications")->name("send_notifications");
+	Route::get("/", "HomeController@index")->name("dashboard");
 	Route::controller("WhatsappController")->group(function () {
 		Route::get("/whatsapp", "index")->name("whatsapp");
 		Route::post("/whatsapp_import", "import")->name("whatsapp_import");

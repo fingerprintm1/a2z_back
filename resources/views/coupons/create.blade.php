@@ -90,13 +90,17 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-4">
 							<label for="number" class="form-label">@lang("global.number_coupons")</label>
 							<input type="number" value="{{ old("number") }}" class="form-control @error('number') is-invalid @enderror" id="number" name="number" placeholder="10" aria-describedby="defaultFormControlHelp" />
 						</div>
-						<div class="col-6">
+						<div class="col-4">
 							<label for="discount" class="form-label">@lang("global.discount")</label>
 							<input type="number" value="{{ old("discount", 0) }}" class="form-control @error('discount') is-invalid @enderror" id="discount" name="discount" placeholder="999.00" aria-describedby="defaultFormControlHelp" />
+						</div>
+						<div class="col-4">
+							<label for="code" class="form-label">@lang("global.code")</label>
+							<input type="text" value="{{ old("code", '') }}" class="form-control @error('code') is-invalid @enderror" id="code" name="code" placeholder="OFF" />
 						</div>
 
 

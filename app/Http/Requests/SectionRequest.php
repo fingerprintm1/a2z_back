@@ -29,7 +29,7 @@ class SectionRequest extends FormRequest
 			"description_ar" => "max:1000|required",
 			"description_en" => "max:1000|required",
 			//			"section_id" => "required",
-			'photo' => 'required|mimes:jpeg,jpg,png,gif,webp,svg',
+			'photo' => 'mimes:jpeg,jpg,png,gif,webp,svg',
 
 		];
 	}
@@ -49,7 +49,7 @@ class SectionRequest extends FormRequest
 			"description_en.required" => trans("validation.description_en_required"),
 			"description_en.max" => trans("validation.description_en_max"),
 			//			"section_id.required" => trans("validation.section_id_required"),
-			'photo.required' => trans("validation.photo_required"), 
+//			'photo.required' => trans("validation.photo_required"),
 			'photo.mimes' => trans("validation.photo_mimes")
 		];
 	}
