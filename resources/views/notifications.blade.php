@@ -67,8 +67,8 @@
 						<td class="text-start"><a href="https://api.whatsapp.com/send?phone={{$user->phone}}" target="_blank" class="text-truncate d-flex align-items-center ">{{$user->phone}}</a></td>
 						<td class="text-start"><span class='text-truncate d-flex align-items-center'>{{$user->roles_name !== null ? $user->roles_name[0] : '--'}}</span></td>
 						<td class="text-start">
-							<a href="{{asset("attachments/$user->photo")}}" target="_blank" class="avatar avatar-xl d-block ">
-								<img src="{{asset("attachments/$user->photo")}}" alt="--" class="rounded-circle object-cover">
+							<a href="{{asset("images/$user->photo")}}" target="_blank" class="avatar avatar-xl d-block ">
+								<img src="{{asset("images/$user->photo")}}" alt="--" class="rounded-circle object-cover">
 							</a>
 						</td>
 						<td class="text-start">{{DateValue($user->created_at)}}</td>

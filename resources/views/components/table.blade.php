@@ -140,7 +140,7 @@
       setTimeout(() => {
         let inputIdsValue = $("#ids-delete");
         let valueIds = [];
-        $(".delete-all").on("change", function () {
+        $(".content-wrapper").on("change", ".delete-all",function () {
           if ($(this)[0].checked) {
             buttonActionDisable(true);
             valueIds.push($(this).data("id"));

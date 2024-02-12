@@ -40,7 +40,7 @@ class OffersController extends Controller
 	public function getOffer($id)
 	{
 		try {
-			$offer = Offer::with(["courses" => ["currency", "teacher"], "currency"])->find($id);
+			$offer = Offer::with(["courses" => ["currency", "teacher", "section"], "currency"])->find($id);
 			$offer->subscribed = 0;
 			$user = auth()->guard('api')->user();
 			if ($user !== null) {
