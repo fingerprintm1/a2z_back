@@ -250,7 +250,6 @@ return [
 	"professional" => "محترف",
 	"photo" => "الصوره",
 	"main_photo" => "الصورة الرئيسية",
-	"description_photo" => "صورة وصف الحصة",
 	"price" => "السعر",
 	"sub_price" => "السعر قبل الخصم",
 	"order" => "الترتيب",

@@ -172,7 +172,6 @@ class GlobalSeeder extends Seeder
 			"description_ar" => "لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر",
 			"description_en" => "Lorem Ipsum is simply dummy text (meaning the intent is form, not content) and is used by the printing and publishing industries. Lorem Ipsum has been the standard for dummy text since the 1500s",
 			"photo" => "courses/1.jpg",
-			"description_photo" => "courses/3.jpg",
 		]);
 		$course_2 = Course::create([
 			"name" => "ثاني حصة",
@@ -194,7 +193,6 @@ class GlobalSeeder extends Seeder
 			"description_ar" => "لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر",
 			"description_en" => "Lorem Ipsum is simply dummy text (meaning the intent is form, not content) and is used by the printing and publishing industries. Lorem Ipsum has been the standard for dummy text since the 1500s",
 			"photo" => "courses/3.jpg",
-			"description_photo" => "courses/2.jpg",
 		]);
 
 		$offer = Offer::create([

@@ -124,13 +124,13 @@
 					       dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}" />
 				</div>
 				<div class="mt-3 col-4 youtube" style="display: none">
-					<label for="video" id="label_video" class="form-label">@lang("Video ID")</label>
+					<label for="youtube_input" id="label_video" class="form-label">@lang("Video ID")</label>
 					<div style=" position: relative; ">
 						<div style="position: absolute; top: 0; bottom: 0; left: 0; display: flex; align-items: center; pointer-events: none" id="parent_icon_video" class="text-bg-danger p-3 rounded-none">
 							<i class="fa-brands fa-youtube text-start text-2xl youtube" style="display: none"></i>
 						</div>
 						<input
-							id="video"
+							id="youtube_input"
 							type="text"
 							class="form-control rounded-0 @error('video') is-invalid @enderror"
 							value="{{old("videoID", $lecture->videoID)}}"
@@ -205,6 +205,7 @@
         $(".server").hide();
         $(".youtube").show();
         $(".server_id").hide();
+        console.log("dfdff");
         $("#server_id").removeAttr("name");
         $("#youtube_input").attr("name", "videoID");
       } else if ($(this).val() === "server") {

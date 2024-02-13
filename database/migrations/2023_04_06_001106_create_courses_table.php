@@ -18,7 +18,6 @@ return new class extends Migration {
 			$table->longText("description_ar");
 			$table->longText("description_en");
 			$table->string('photo', 500);
-			$table->string('description_photo', 500)->nullable();
 			$table->decimal('price')->default(0);
 			$table->decimal('sub_price')->default(0);
 			$table->decimal('discount')->default(0);

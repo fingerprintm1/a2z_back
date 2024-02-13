@@ -31,10 +31,6 @@ class DeleteCourseService
 		if (is_file($oldPath)) {
 			unlink($oldPath);
 		}
-		$oldPathDescription = public_path("/images/{$this->course->description_photo}");
-		if (is_file($oldPathDescription)) {
-			unlink($oldPathDescription);
-		}
 	}
 
 	protected function deleteFiles()

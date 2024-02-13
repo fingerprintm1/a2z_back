@@ -213,10 +213,6 @@
 									<label for="formFile" class="form-label">@lang("global.main_photo")</label>
 									<input class="form-control @error('photo') is-invalid @enderror" name="photo" type="file" id="formFile" accept="image/*" />
 								</div>
-								<div class="col-3 ">
-									<label for="formFile" class="form-label">@lang("global.description_photo")</label>
-									<input class="form-control @error('description_photo') is-invalid @enderror" name="description_photo" type="file" id="formFile" accept="image/*" />
-								</div>
 
 							</div>
 							<div class="col-12 d-flex justify-content-between mt-4">

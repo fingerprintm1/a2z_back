@@ -85,6 +85,7 @@ class CourseController extends Controller
 
 	public function update($id, CoursesRequest $request)
 	{
+
 		$this->authorize("edit_courses");
 		$course = Course::findorFail($id);
 		return (new UpdateCourseService($course))->update($request);

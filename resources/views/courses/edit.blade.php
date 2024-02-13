@@ -182,14 +182,6 @@
 												<span>@lang("global.not_photo")</span>
 											@endif
 										</a>
-										<a href="{{$course->description_photo != null || $course->description_photo != "" ? asset('images/' . $course->description_photo) : $course->id}}" target="_blank" class="avatar w-px-200 h-px-200 d-block mx-auto mb-4">
-											<p class="text-center text-2xl">@lang("global.description_photo")</p>
-											@if($course->description_photo != null || $course->description_photo != "")
-												<img src="{{asset('images/' . $course->description_photo)}}" alt="Avatar" class="rounded-circle object-cover">
-											@else
-												<span>@lang("global.not_photo")</span>
-											@endif
-										</a>
 									</div>
 								</div>
 								<div class="col-4 free_course mb-4">
@@ -239,10 +231,6 @@
 								<div class="col-3">
 									<label for="formFile" class="form-label">@lang("global.main_photo")</label>
 									<input class="form-control @error('photo') is-invalid @enderror" name="photo" type="file" id="formFile" accept="image/*" />
-								</div>
-								<div class="col-3">
-									<label for="formFile" class="form-label">@lang("global.description_photo")</label>
-									<input class="form-control @error('description_photo') is-invalid @enderror" name="description_photo" type="file" id="formFile" accept="image/*" />
 								</div>
 
 							</div>

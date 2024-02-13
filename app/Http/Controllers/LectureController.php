@@ -90,6 +90,7 @@ class LectureController extends Controller
 
 	public function update($chapter_id, $id, LectureRequest $request)
 	{
+		dd($request);
 		$this->authorize('edit_lectures');
 		$lecture = Lecture::findorFail($id);
 		return (new UpdateLectureService($lecture))->update($request);

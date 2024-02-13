@@ -24,7 +24,6 @@ class Course extends Model
 		'subscribers',
 		'subscription_duration',
 		'photo',
-		'description_photo',
 		'status',
 		'type',
 		'collectionID',
