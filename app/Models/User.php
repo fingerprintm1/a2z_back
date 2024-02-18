@@ -32,6 +32,7 @@ class User extends Authenticatable implements JWTSubject
 		'birth',
 		'access_token',
 		'teacher_id',
+		'section_id',
 	];
 
 	public function courses($userID)
@@ -49,6 +50,11 @@ class User extends Authenticatable implements JWTSubject
 	public function teacher()
 	{
 		return $this->belongsTo(Teacher::class);
+	}
+
+	public function section()
+	{
+		return $this->belongsTo(Section::class);
 	}
 
 	protected $hidden = ['password', 'remember_token'];

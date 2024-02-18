@@ -34,6 +34,7 @@ class AppController extends Controller
 			$user->subscribed = 0;
 			if ($user !== null) {
 				$user->unreadNotifications;
+				$user->section;
 				$user->access_token = $request->bearerToken();
 				$user->subscribed = (bool)Order::where("status", 1)->where("user_id", $user->id)->first();
 			}

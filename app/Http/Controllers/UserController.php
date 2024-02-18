@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\Coupon;
+use App\Models\Section;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class UserController extends Controller
 
 	public function getUsers(Request $request)
 	{
-		$users = User::with("teacher")->where("id", "!=", auth()->user()->id)
+		$users = User::with("section")->where("id", "!=", auth()->user()->id)
 			->orderBy("id", "DESC")
 			->get();
 		return response(["data" => $users]);
@@ -66,7 +67,8 @@ class UserController extends Controller
 		$this->authorize("create_users");
 		$roles = Role::pluck("name", "name")->all();
 		$teachers = Teacher::all();
-		return view("users.create", compact("roles", "teachers"));
+		$sections = Section::all();
+		return view("users.create", compact("roles", "teachers", "sections"));
 	}
 
 	public function store(UserRequest $request)
@@ -96,12 +98,13 @@ class UserController extends Controller
 		$user = User::findorFail($id);
 		$roles = Role::pluck("name", "name")->all();
 		$teachers = Teacher::all();
-		return view("users.edit", compact("roles", "user", "teachers"));
+		$sections = Section::all();
+		return view("users.edit", compact("roles", "user", "teachers", "sections"));
 	}
 
 	public function update($id, UserRequest $request)
 	{
-		//		dd($request);
+//		dd($request);
 		$this->authorize("edit_users");
 		$user = User::findorFail($id);
 		$path = $user->photo;

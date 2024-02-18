@@ -50,6 +50,10 @@
 								<span>{{$user->email}}</span>
 							</li>
 							<li class="mb-2 pt-1">
+								<span class="fw-semibold me-1">@lang("global.section"):</span>
+								<span>{{$user->section["name_". app()->getLocale()] ?? "--"}}</span>
+							</li>
+							<li class="mb-2 pt-1">
 								<span class="fw-semibold me-1">@lang("global.balance"):</span>
 								<span class="badge bg-label-{{$user->balance <= 0 ? 'danger' : 'success'}}">{{$user->balance}} جنية </span>
 							</li>

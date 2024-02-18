@@ -27,7 +27,7 @@ return [
 	"currency_required" => "حقل العملة مطلوب",
 	"currency_id_required" => "حقل العملة مطلوب",
 
-	"chapter_id_required" => "حقل القسم مطلوب",
+	"chapter_id_required" => "حقل الصف مطلوب",
 
 	"price_required" => "حقل السعر مطلوب",
 	"price_numeric" => "حقل السعر يجب ان يكون رقم",
@@ -83,7 +83,7 @@ return [
 	"slug_required" => "حقل الرابط مطلوب",
 	"slug_unique" => "حقل الرابط مسجل بالفعل",
 	"slug_max" => "اقصي عدد حروف في حقل الرابط هو 100",
-	"section_required" => "حقل القسم مطلوب",
+	"section_required" => "حقل الصف مطلوب",
 	"title_required" => "حقل العنوان مطلوب",
 	"views_required" => "حقل عدد المشاهدات مطلوب",
 	"message_required" => "حقل الرسالة مطلوب",
@@ -94,7 +94,7 @@ return [
 	"key_required" => "حقل المفتاح مطلوب",
 	"value_ar_required" => "حقل القيمة عربي مطلوبة",
 	"value_en_required" => "حقل القيمة إنجليزي مطلوبة",
-	"work_section_id_required" => "حقل القسم هنا مطلوب",
+	"work_section_id_required" => "حقل الصف هنا مطلوب",
 
 	"expense_id_required" => "إسم المصروف مطلوب",
 

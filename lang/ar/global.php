@@ -1,9 +1,9 @@
 <?php
 
 return [
-	"site_name" => "منصة منصة A2Z",
-	"site_name_ar" => "منصة A2Z",
-	"site_name_en" => "منصة A2Z",
+	"site_name" => "A2Z",
+	"site_name_ar" => "A2Z",
+	"site_name_en" => "A2Z",
 	"welcome" => "اهلا بيك في",
 	"coupon" => "كود الشراء",
 	"all_reversed" => "جميع الحقوق محفوظة لدي المسؤولين",

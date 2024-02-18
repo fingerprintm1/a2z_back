@@ -181,7 +181,7 @@ class AuthController extends Controller
 					"phone" => "required|numeric",
 					"phone_parent" => "required|numeric",
 					"birth" => "date",
-					//					'roles_name' => 'required',
+					'section_id' => 'required',
 				],
 				[
 					"name_ar.required" => trans("validation.name_ar_required"),
@@ -196,7 +196,7 @@ class AuthController extends Controller
 					"phone_parent.numeric" => trans("validation.phone_parent_numeric"),
 					"password.required" => trans("validation.password_required"),
 					"password.min" => trans("validation.password_min"),
-					//					'roles_name.required' => trans('validation.roles_name_required'),
+					'section_id.required' => trans('validation.section_required'),
 				]
 			);
 			if ($validator->fails()) {
@@ -255,6 +255,7 @@ class AuthController extends Controller
 					"email" => "required|email|unique:users,email," . $user->id,
 					"phone" => "required|numeric",
 					"birth" => "date",
+					'section_id' => 'required',
 				],
 				[
 					"name_ar.required" => trans("validation.name_ar_required"),
@@ -265,6 +266,7 @@ class AuthController extends Controller
 					"email.unique" => trans("validation.email_unique"),
 					"phone.required" => trans("validation.phone_required"),
 					"phone.numeric" => trans("validation.phone_numeric"),
+					'section_id.required' => trans('validation.section_required'),
 				]
 			);
 

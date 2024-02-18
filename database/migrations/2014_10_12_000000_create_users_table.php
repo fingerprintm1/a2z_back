@@ -30,6 +30,7 @@ return new class extends Migration {
 			$table->date('birth')->nullable();
 			$table->text('access_token')->nullable();
 			$table->foreignId("teacher_id")->nullable()->constrained("teachers")->cascadeOnUpdate()->nullOnDelete();
+			$table->foreignId("section_id")->nullable()->constrained("sections")->cascadeOnUpdate()->nullOnDelete();
 			$table->rememberToken();
 			$table->softDeletes();
 			$table->timestamps();

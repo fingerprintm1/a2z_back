@@ -35,7 +35,7 @@ $(function() {
         { data: "roles_name" },
         { data: "status" },
         { data: "photo" },
-        { data: "teacher" },
+        { data: "section" },
         { data: "created_at" },
         { data: "action" },
         { data: "" }
@@ -169,8 +169,8 @@ $(function() {
         {
           targets: 7,
           render: function(data, type, full, meta) {
-            var teacher = full["teacher"];
-            let content = teacher == null ? "--" : `<a href="/teacher/edit/${teacher["id"]}" class="text-truncate d-flex align-items-center">${teacher[`name_${lang}`]}</a>`;
+            var section = full["section"];
+            let content = section == null ? "--" : `<a href="/section/edit/${section["id"]}" class="text-truncate d-flex align-items-center">${section[`name_${lang}`]}</a>`;
             return content;
           }
         },

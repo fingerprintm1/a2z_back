@@ -102,7 +102,7 @@
 					<label for="flatpickr-date" class="form-label py-1">@lang("global.birth")</label>
 					<input type="text" value="{{ old("birth") }}" name="birth" class="form-control flatpickr-date" placeholder="YYYY-MM-DD" id="flatpickr-date" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}" />
 				</div>
-				<div class="col-6 ">
+				<div class="col-4 ">
 					<label for="teacher_id" class="form-label">{{ trans('global.coach') }}</label>
 					<select id="teacher_id" name="teacher_id" class="select2 form-select form-select-lg teacher_id @error('teacher_id') is-invalid @enderror" data-allow-clear="true">
 						<option disabled selected>@lang("global.choose_teacher")</option>
@@ -111,7 +111,16 @@
 						@endforeach
 					</select>
 				</div>
-				<div class="card-body col-md-6 p-0 mt-3 pe-2 ps-2">
+				<div class="col-4 ">
+					<label for="section_id" class="form-label">{{ trans('global.section') }}</label>
+					<select id="section_id" name="section_id" class="select2 form-select form-select-lg section_id @error('section_id') is-invalid @enderror" data-allow-clear="true">
+						<option disabled selected>@lang("global.choose_section")</option>
+						@foreach ($sections as $section)
+							<option value="{{ $section->id }}" @if (old('section_id') == $section->id) selected @endif>{{ $section["name_". app()->getLocale()] }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="card-body col-4 p-0 mt-3 pe-2 ps-2">
 					<label for="customRadioTemp1" class="form-label ">@lang("global.status")</label>
 					<div class="row">
 						<div class="col-md mb-md-0 mb-2">

@@ -44,7 +44,7 @@
 					<th class="text-start">@lang("global.roles")</th>
 					<th class="text-start">@lang("global.balance")</th>
 					<th class="text-start">@lang("global.photo")</th>
-					<th class="text-start">@lang("global.teacher")</th>
+					<th class="text-start">@lang("global.section")</th>
 					<th class="text-start">@lang("global.created_at")</th>
 					<th class="text-start">@lang("global.actions")</th>
 				</tr>
