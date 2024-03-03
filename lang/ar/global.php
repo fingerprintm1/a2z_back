@@ -43,7 +43,7 @@ return [
 	"chose_section" => "إختار صف",
 	"count_questions" => "عددالأسئلةاللى هتظهر في الإمتحان",
 	"recorded_users" => "إمتحانات الطلبة",
-	"course" => "الحصة (الحصة)",
+	"course" => "الحصة",
 
 	"chose_course" => "إختار الحصة",
 	"courses" => "الحصص",

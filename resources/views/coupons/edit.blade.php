@@ -42,7 +42,7 @@
 				<div class="col-12 d-flex justify-content-between align-items-center">
 					<h5 class="card-header">@lang("global.edit_coupon")</h5>
 					<div class="col-8 mt-2 row text-nowrap me-3">
-						<div class="col-4 mb-md-0 mb-2">
+						{{--<div class="col-4 mb-md-0 mb-2">
 							<div class="form-check custom-option custom-option-basic">
 								<label class="form-check-label custom-option-content py-2" for="lecture">
 									<input name="type" class="form-check-input type" type="radio" value="lecture" id="lecture" @if(old('type', $coupon->type) === "lecture") checked @endif />
@@ -52,7 +52,7 @@
                 </span>
 								</label>
 							</div>
-						</div>
+						</div>--}}
 						<div class="col-md">
 							<div class="form-check custom-option custom-option-basic">
 								<label class="form-check-label custom-option-content py-2" for="course">

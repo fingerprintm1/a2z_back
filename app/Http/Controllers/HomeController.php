@@ -34,12 +34,14 @@ class HomeController extends Controller
 
 	public function notifications()
 	{
+		$this->authorize("notifications");
 		$users = User::orderBy("id", "DESC")->get();
 		return view("notifications", compact("users"));
 	}
 
 	public function sendNotifications(Request $request)
 	{
+		$this->authorize("notifications");
 		if (empty($request->ids)) return back()->with("error", trans("global.users_not_chose"));
 		$users = User::whereIn("id", json_decode($request->ids))->get();
 		Notification::send($users, new MessageNotifications($request->message));

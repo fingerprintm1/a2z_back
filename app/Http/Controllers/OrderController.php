@@ -101,7 +101,8 @@ class OrderController extends Controller
 	public function ordersOffers()
 	{
 		$this->authorize('show_orders');
-		$offers = Offer::orderBy('id', 'DESC')->get();
+//		$offers = Offer::orderBy('id', 'DESC')->get();
+		$offers = Course::with("offers")->Courses()->get()->pluck("offers")->flatten();
 		foreach ($offers as $offer) {
 			$ordersOffer = Order::where("offer_id", $offer->id)->orderBy('id', 'DESC')->get();
 			$offer->active = $ordersOffer->where("status", 1)->count();
@@ -118,14 +119,18 @@ class OrderController extends Controller
 		} else if ($type === 'lecture') {
 			$orders = Order::Orders()->whereNotNull("lecture_id")->orderBy('id', 'DESC')->get();
 		} else if ($type === 'offer') {
-			$orders = Order::whereNotNull("offer_id")->orderBy('id', 'DESC')->get();
+			$offersIDS = Course::with("offers")->Courses()->get()->pluck("offers")->flatten()->pluck("id");
+			$orders = Order::whereIn("offer_id", $offersIDS)->orderBy('id', 'DESC')->get();
 		}
 //		dd($orders[0]->lecture->course->name);
 		if ($request->has("ID") and $request->has("status")) {
 			if ($type === 'course') {
 				$orders = Order::Orders()->where($type . "_id", $request->ID)->whereNull("lecture_id")->where("status", $request->status)->orderBy('id', 'DESC')->get();
-			} else {
+			} else if ($type === "lecture") {
 				$orders = Order::Orders()->where($type . "_id", $request->ID)->where("status", $request->status)->orderBy('id', 'DESC')->get();
+			} else if ($type === "offer") {
+				$offerID = Course::with("offers")->Courses()->get()->pluck("offers")->flatten()->where("id", $request->ID)->first()->id ?? 0;
+				$orders = Order::where($type . "_id", $offerID)->where("status", $request->status)->orderBy('id', 'DESC')->get();
 			}
 		}
 		return view('orders.orders', compact("orders", "type"));

@@ -42,7 +42,7 @@
 				<div class="col-12 d-flex justify-content-between align-items-center">
 					<h5 class="card-header">@lang("global.create_coupon")</h5>
 					<div class="col-8 mt-2 row text-nowrap me-3">
-						<div class="col-4 mb-md-0 mb-2">
+						{{--<div class="col-4 mb-md-0 mb-2">
 							<div class="form-check custom-option custom-option-basic">
 								<label class="form-check-label custom-option-content py-2" for="lecture">
 									<input name="type" class="form-check-input type" type="radio" value="lecture" id="lecture" checked />
@@ -52,11 +52,11 @@
                 </span>
 								</label>
 							</div>
-						</div>
+						</div>--}}
 						<div class="col-md">
 							<div class="form-check custom-option custom-option-basic">
 								<label class="form-check-label custom-option-content py-2" for="course">
-									<input name="type" @if(old('type') === "course") checked @endif class="form-check-input type" type="radio" value="course" id="course" />
+									<input name="type" checked class="form-check-input type" type="radio" value="course" id="course" />
 									<span class="custom-option-header">
                   <span class="h6 mb-0 me-3">@lang("global.course")</span>
 									<i class="fa-solid fa-clapperboard text-danger"></i>

@@ -168,7 +168,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="menu-item menu-item-child @if($ordersRoutes === 'lecture' or in_array(Route::currentRouteName(),["orders_lectures", 'orders_courses_lectures', 'orders_course_lectures'])) open @endif">
+					{{--<li class="menu-item menu-item-child @if($ordersRoutes === 'lecture' or in_array(Route::currentRouteName(),["orders_lectures", 'orders_courses_lectures', 'orders_course_lectures'])) open @endif">
 						<a href="javascript:void(0);" class="menu-link menu-toggle">
 							<i class="menu-icon tf-icons fa-solid fa-users-rectangle me-3 fs-4"></i>
 							<div class="d-flex align-items-center justify-content-between w-100">
@@ -186,7 +186,7 @@
 								<a href="{{route('orders_courses_lectures')}}" class="menu-link">@lang('global.orders_lectures')</a>
 							</li>
 						</ul>
-					</li>
+					</li>--}}
 					<li class="menu-item menu-item-child @if($ordersRoutes === 'offer' or in_array(Route::currentRouteName(),["orders_offers"])) open @endif">
 						<a href="javascript:void(0);" class="menu-link menu-toggle">
 							<i class="menu-icon tf-icons fa-solid fa-gift me-2 fs-4"></i>
@@ -426,13 +426,15 @@
 				</a>
 			</li>
 		@endcan
-		<li
-			class="menu-item @if(in_array(Route::currentRouteName(), ["notifications", "send_notifications"])) active @endif">
-			<a href="{{route('notifications')}}" class="menu-link">
-				<i class="menu-icon fa-solid fa-bell me-3 fs-3"></i>
-				<div>@lang('global.notifications')</div>
-			</a>
-		</li>
+		@can("notifications")
+			<li
+				class="menu-item @if(in_array(Route::currentRouteName(), ["notifications", "send_notifications"])) active @endif">
+				<a href="{{route('notifications')}}" class="menu-link">
+					<i class="menu-icon fa-solid fa-bell me-3 fs-3"></i>
+					<div>@lang('global.notifications')</div>
+				</a>
+			</li>
+		@endcan
 		@can("show_payment_methods")
 			<li
 				class="menu-item @if(in_array(Route::currentRouteName(), ["payment_method", "payment_method_create", "payment_method_edit"])) active @endif">

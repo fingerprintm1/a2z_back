@@ -40,6 +40,7 @@ class PermissionTableSeeder extends Seeder
 			"bank_questions" => ['show_bank_questions', 'create_bank_questions', 'edit_bank_questions', 'remove_bank_questions'],
 
 			"dashboard",
+			"notifications",
 			"whatsapp",
 			"pay_expenses",
 			"details_expenses",
