@@ -99,7 +99,7 @@
 								<tr>
 									<td class="text-start"><input type="checkbox" data-id="{{$attachment->id}}" name="deleteAll[]" class="delete-all dt-checkboxes form-check-input me-3">{{$attachment->id}}</td>
 									<td class="text-start">{{$attachment->name}}</td>
-									<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">{{DATE($attachment->created_at)}}</td>
+									<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">{{DateValue($attachment->created_at)}}</td>
 									<td><span class="badge bg-label-success me-1"><a href="{{asset('images/' . $attachment->file)}}" target="_blank">file</a></span></td>
 									<td class="text-start">
 										<div class="d-flex align-items-center">

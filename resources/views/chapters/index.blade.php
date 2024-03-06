@@ -73,7 +73,7 @@
 						<td class="text-start"><input type="checkbox" data-id="{{$chapter->id}}" name="deleteAll[]" class="delete-all dt-checkboxes form-check-input me-3">{{$chapter->id}}</td>
 						<td class="text-start">{{$chapter["name_" . app()->getLocale()]}}</td>
 						<td class="text-start">{{$chapter->order}}</td>
-						<td class="text-start">{{DATE($chapter->created_at)}}</td>
+						<td class="text-start">{{DateValue($chapter->created_at)}}</td>
 						<td class="text-start">
 							<div class="d-flex align-items-center">
 								<a href="{{url("/chapter/$chapter->id/lectures")}}" class="text-body ms-1"><i class="fa-solid fa-clapperboard fa-xl me-2"></i></a>

@@ -152,7 +152,7 @@
 							</a>
 						</td>
 						<td class="text-start "><p class='text-truncate  fw-bold badge bg-label-success w-px-150 overflow-hidden m-0'>{{$order->code ?? "--"}}</p></td>
-						<td class="text-start">{{DATE($order->created_at)}}</td>
+						<td class="text-start">{{DateValue($order->created_at)}}</td>
 						<td class="text-start">
 							<div class="d-flex align-items-center">
 								<a href="{{route('order_edit', [$type, $order->id])}}" class="text-body ms-1"><i class="ti ti-edit ti-sm me-2"></i></a>

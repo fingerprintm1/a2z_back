@@ -40,9 +40,7 @@ class UserController extends Controller
 
 	public function getUsers(Request $request)
 	{
-		$users = User::with("section")->where("id", "!=", auth()->user()->id)
-			->orderBy("id", "DESC")
-			->get();
+		$users = User::with("section")->where("id", "!=", auth()->user()->id)->orderBy("id", "DESC")->get();
 		return response(["data" => $users]);
 	}
 

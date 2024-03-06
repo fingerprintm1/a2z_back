@@ -96,7 +96,7 @@
 			<td class="text-start">{{ $expenseDetail->user->name() }}</td>
 			<td class="text-start">{{ $expenseDetail->description }}</td>
 			<td class="text-start">{{ $expenseDetail->amount }}</td>
-			<td class="text-start">{{ DATE($expenseDetail->created_at) }}</td>
+			<td class="text-start">{{ DateValue($expenseDetail->created_at) }}</td>
 		</tr>
 	@endforeach
 	@if($expenseDetails->push != null)

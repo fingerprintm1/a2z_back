@@ -93,11 +93,14 @@ class HomeController extends Controller
 		$pushBankTransactions = currencyEGP($bankTransactions->where("type", 2));
 		$totalBankTransactions = $pushBankTransactions - $pullBankTransactions;
 
+		$offersIDS = Course::with("offers")->Courses()->get()->pluck("offers")->flatten()->pluck("id");
+		$ordersOffers = Order::whereIn("offer_id", $offersIDS)->orderBy('id', 'DESC')->get();
+
 		$orders = Order::Orders()->whereDate("created_at", Carbon::today())->orderBy("created_at", "DESC")->get();
 		$totalOrders = currencyEGP($orders, "price");
 		$ordersStatus = Order::Orders()->orderBy("created_at", "DESC")->get();
-		$ordersActive = $ordersStatus->where("status", 1)->count();
-		$ordersInActive = $ordersStatus->where("status", 0)->count();
+		$ordersActive = $ordersStatus->where("status", 1)->count() + $ordersOffers->where("status", 1)->count();
+		$ordersInActive = $ordersStatus->where("status", 0)->count() + $ordersOffers->where("status", 0)->count();
 		$allOrders_2023 = Order::whereYear("created_at", date("Y"))->get();
 		$totalOrdersYear_2023 = currencyEGP($allOrders_2023, "price");
 		$allOrders_2024 = Order::whereYear("created_at", "2024")->get();

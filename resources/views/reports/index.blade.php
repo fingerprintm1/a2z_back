@@ -156,7 +156,7 @@
 									</a>
 								</td>
 								<td class="text-start "><p class='text-truncate  fw-bold badge bg-label-success w-px-150 overflow-hidden m-0'>{{$order->code ?? "--"}}</p></td>
-								<td class="text-start">{{DATE($order->created_at)}}</td>
+								<td class="text-start">{{DateValue($order->created_at)}}</td>
 
 							</tr>
 						@endforeach

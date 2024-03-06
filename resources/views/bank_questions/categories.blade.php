@@ -62,7 +62,7 @@
 							<td class="text-start">{{ $category->id}}</td>
 							<td class="text-start"><a href="{{route('bank_questions', $category->id)}}">{{ $category->name }}</a></td>
 							<td class="text-start "><span class="fw-bold badge bg-label-success">{{ $category->countQuestions()}}</span></td>
-							<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">{{DATE($category->created_at)}}</td>
+							<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">{{DateValue($category->created_at)}}</td>
 						</tr>
 					@endforeach
 					</tbody>

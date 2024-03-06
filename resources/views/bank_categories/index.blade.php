@@ -62,7 +62,7 @@
 							<td class="text-start">{{ $bankCategory->id}}</td>
 							<td class="text-start">{{ $bankCategory->name }}</td>
 							<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">
-								{{DATE($bankCategory->created_at)}}</td>
+								{{DateValue($bankCategory->created_at)}}</td>
 							<td class="text-start">
 								<a href="{{route('bank_categories_edit', [$bankCategory->id])}}" class="text-body ms-1"><i class="ti ti-edit ti-sm me-2"></i></a>
 								<a href="{{route('bank_categories_destroy', [$bankCategory->id])}}" onclick="return confirm('هل انت متأكد')" class="text-body "><i class="ti ti-trash ti-sm mx-2"></i></a>

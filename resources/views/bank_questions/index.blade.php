@@ -96,7 +96,7 @@
 									</audio>
 								@endif
 							</td>
-							<td class="text-start">{{DATE($question->created_at)}}</td>
+							<td class="text-start">{{DateValue($question->created_at)}}</td>
 							<td class="text-start">
 								<div class="d-flex align-items-center">
 									<a href="{{route('bank_question_edit', [$bank_category_id, $question->id])}}" class="text-body ms-1"><i class="ti ti-edit ti-sm me-2"></i></a>

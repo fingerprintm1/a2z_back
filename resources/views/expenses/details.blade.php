@@ -98,7 +98,7 @@
 						<td class="text-start"><a href="/user/{{$expenseDetail->user->id}}" target="_blank">{{ $expenseDetail->user->name() }}</a></td>
 						<td class="text-start">{{ $expenseDetail->description }}</td>
 						<td class="text-start">{{ $expenseDetail->amount }}</td>
-						<td class="text-start">{{ DATE($expenseDetail->created_at) }}</td>
+						<td class="text-start">{{ DateValue($expenseDetail->created_at) }}</td>
 					</tr>
 				@endforeach
 				</tbody>

@@ -177,13 +177,9 @@ $(function() {
         {
           targets: 8,
           render: function(data, type, full, meta) {
-            var created_at = new Date(full["created_at"]).toISOString();
-            if (lang == "ar") {
-              created_at = created_at.slice(11, 19) + " " + created_at.slice(0, 10);
-            } else {
-              created_at = created_at.slice(0, 10) + " " + created_at.slice(11, 19);
-            }
-            return `<span class="text-truncate d-flex align-items-center">${created_at}</span>`;
+            var createdAtDate = new Date(full["created_at"]);
+            const formattedDate = ` ${String(createdAtDate.getHours()).padStart(2, "0")}:${String(createdAtDate.getMinutes()).padStart(2, "0")}:${String(createdAtDate.getSeconds()).padStart(2, "0")} ${createdAtDate.getFullYear()}/${String(createdAtDate.getMonth() + 1).padStart(2, "0")}/${String(createdAtDate.getDate()).padStart(2, "0")}`;
+            return `<span class="text-truncate d-flex align-items-center">${formattedDate}</span>`;
           }
         },
         {

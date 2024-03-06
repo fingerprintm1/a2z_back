@@ -100,7 +100,7 @@
 			<td class="text-start">{{ $bankTransaction->currencyData->name . " = " . $bankTransaction->currencyData->currency_symbol}}</td>
 			<td class="text-start">{{ $bankTransaction->amount }}</td>
 			<td class="text-start">{{ $bankTransaction->bank_amount_after }} </td>
-			<td class="text-start">{{ DATE($bankTransaction->created_at) }}</td>
+			<td class="text-start">{{ DateValue($bankTransaction->created_at) }}</td>
 		</tr>
 	@endforeach
 	@if($bankTransactions->total != null)

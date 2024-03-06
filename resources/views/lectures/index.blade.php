@@ -83,7 +83,7 @@
 						<td><span class="badge bg-label-info me-1">{{$lecture->type_video}}</span></td>
 						<td><span class="badge bg-label-success me-1">{{$lecture->price}}</span></td>
 						<td><span class="badge bg-label-primary me-1">@php echo $lecture->videoID @endphp</span></td>
-						<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">{{DATE($lecture->created_at)}}</td>
+						<td class="text-start" dir="{{app()->getLocale() == 'ar' ? 'ltr' : 'rtl'}}">{{DateValue($lecture->created_at)}}</td>
 						<td class="text-start">
 							<div class="d-flex align-items-center">
 								<a href="javascript:;" class="text-body ms-1 copy_join_url" data-join_url="{{$lecture->type_video === "zoom" ? $lecture->join_url : $lecture->videoID}}"><i class="fa-solid fa-copy fa-xl me-2"></i></a>

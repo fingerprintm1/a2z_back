@@ -105,7 +105,7 @@
 									<p class='text-truncate  fw-bold badge bg-label-danger w-px-100 overflow-hidden m-0'>{{\App\Models\Course::withTrashed()->find($certificate->course_id)["name_" . app()->getLocale()]}}</p>
 								@endif
 							</td>
-							<td class="text-start">{{DATE($certificate->created_at)}}</td>
+							<td class="text-start">{{DateValue($certificate->created_at)}}</td>
 							<td class="text-start">
 								<div class="d-flex align-items-center">
 									<a href="{{route('certificate_edit', [$course->id, $certificate->id])}}" class="text-body ms-1"><i class="ti ti-edit ti-sm me-2"></i></a>

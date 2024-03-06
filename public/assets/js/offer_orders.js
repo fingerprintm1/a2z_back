@@ -6,7 +6,6 @@
 let image_path = document.documentElement.getAttribute("data-base-url") + "/images/";
 // Datatable (jquery)
 $(function() {
-
   var dt_user_table = $(".datatables-users"),
     select2 = $(".select2"),
     userView = baseUrl + "app/user/view/account",
@@ -71,7 +70,9 @@ $(function() {
             var $row_output =
               "<div class=\"d-flex justify-content-start align-items-center user-name\">" +
               "<div class=\"d-flex flex-column\">" +
-              "<a href=\"/user/" + user["id"] + "\" class=\"text-body text-truncate\"><span class=\"fw-semibold\">" +
+              "<a href=\"/user/" +
+              user["id"] +
+              "\" class=\"text-body text-truncate\"><span class=\"fw-semibold\">" +
               $name +
               "</span></a>" +
               "<p class=\"text-muted\">" +
@@ -102,7 +103,7 @@ $(function() {
           targets: 4,
           render: function(data, type, full, meta) {
             var price = full["price"];
-            return ("<span class=\"badge\">" + price + "</span>");
+            return "<span class=\"badge\">" + price + "</span>";
           }
         },
         {
@@ -114,9 +115,7 @@ $(function() {
             // return "<span class='text-truncate d-flex  align-items-center badge " + statusObj[$status].class + '\'>'  +  statusObj[$status].title + '</span>';
             return `
               <label class="switch cursor-pointer">
-                <input type="checkbox" class="switch-input" onchange="toggle_active_order(this, ${$id})"  ${
-              $status == 1 ? "checked" : ""
-            } />
+                <input type="checkbox" class="switch-input" onchange="toggle_active_order(this, ${$id})"  ${$status == 1 ? "checked" : ""} />
                 <span class="switch-toggle-slider">
                   <span class="switch-on">
                     <i class="ti ti-check"></i>
@@ -143,9 +142,7 @@ $(function() {
                     <img src="${image_path}${$photo}" alt="Avatar" class="rounded-circle object-cover">
                 </a>
               `;
-            return (
-              element
-            );
+            return element;
           }
         },
 
@@ -159,13 +156,9 @@ $(function() {
         {
           targets: 8,
           render: function(data, type, full, meta) {
-            var created_at = new Date(full["created_at"]).toISOString();
-            if (lang == "ar") {
-              created_at = created_at.slice(11, 19) + " " + created_at.slice(0, 10);
-            } else {
-              created_at = created_at.slice(0, 10) + " " + created_at.slice(11, 19);
-            }
-            return `<span class="text-truncate d-flex align-items-center">${created_at}</span>`;
+            var createdAtDate = new Date(full["created_at"]);
+            const formattedDate = ` ${String(createdAtDate.getHours()).padStart(2, "0")}:${String(createdAtDate.getMinutes()).padStart(2, "0")}:${String(createdAtDate.getSeconds()).padStart(2, "0")} ${createdAtDate.getFullYear()}/${String(createdAtDate.getMonth() + 1).padStart(2, "0")}/${String(createdAtDate.getDate()).padStart(2, "0")}`;
+            return `<span class="text-truncate d-flex align-items-center">${formattedDate}</span>`;
           }
         },
         {
@@ -226,16 +219,8 @@ $(function() {
               },
               customize: function(win) {
                 //customize print view for dark
-                $(win.document.body)
-                  .css("color", config.colors.headingColor)
-                  .css("border-color", config.colors.borderColor)
-                  .css("background-color", config.colors.bodyBg);
-                $(win.document.body)
-                  .find("table")
-                  .addClass("compact")
-                  .css("color", "inherit")
-                  .css("border-color", "inherit")
-                  .css("background-color", "inherit");
+                $(win.document.body).css("color", config.colors.headingColor).css("border-color", config.colors.borderColor).css("background-color", config.colors.bodyBg);
+                $(win.document.body).find("table").addClass("compact").css("color", "inherit").css("border-color", "inherit").css("background-color", "inherit");
               }
             },
             {
